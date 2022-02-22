@@ -99,8 +99,8 @@ int main()
 
 				break;
 			case 3:
-	                        cout<< "Ingrese el numero de cita a eliminar" << endl;
-	                        cin>> numc;
+				cout << "Ingrese la cita a eliminar" << endl;
+				cin >> numc;
 				cout << "Regresar al menu" << endl;
 				cout << "1-si" << endl;
 				cout << "2-no" << endl;
@@ -125,18 +125,14 @@ int main()
 				break;
 			case 6:
 				cout << "Le agradecomos su preferencia" << endl;
-	                        repetidor = 2;
+				repetidor = 2;
 				break;
 			default:
 				cout << "Ingrese una ocpion valida" << endl;
-				cout << "Escoja una opcion" << endl;
-				cout << "1-Agendar cita" << endl;
-				cout << "2-Modificar cita" << endl;
-				cout << "3-Eliminar cita" << endl;
-				cout << "4-Lista de citas vigentes" << endl;
-				cout << "5-Limpiar pantalla" << endl;
-				cout << "6-Salir" << endl;
-				cin >> opcion;
+				cout << "Regresar al menu" << endl;
+				cout << "1-si" << endl;
+				cout << "2-no" << endl;
+			
 
 			}
 			
@@ -144,3 +140,5 @@ int main()
 	}while (repetidor == 1);
 	
 }
+
+
