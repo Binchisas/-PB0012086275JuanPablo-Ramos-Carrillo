@@ -123,6 +123,7 @@ int main()
 				break;
 			case 6:
 				cout << "Le agradecomos su preferencia" << endl;
+	                        repetidor = 2;
 				break;
 			default:
 				cout << "Ingrese una ocpion valida" << endl;
