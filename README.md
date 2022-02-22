@@ -99,6 +99,8 @@ int main()
 
 				break;
 			case 3:
+	                        cout<< "Ingrese el numero de cita a eliminar" << endl;
+	                        cin>> numc;
 				cout << "Regresar al menu" << endl;
 				cout << "1-si" << endl;
 				cout << "2-no" << endl;
