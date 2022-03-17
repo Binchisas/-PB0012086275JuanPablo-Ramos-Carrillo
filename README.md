@@ -1,14 +1,21 @@
-# -PB0012086275JuanPablo-Ramos-Carrillo
 #include <iostream>
 #include <stdio.h>
 #include<string.h>
 
 using namespace std;
 
+struct consultorio {
+	char paciente[100];
+	char hrs[100];
+	char nomtratamiento[100];
+	float precio;
+	int numero;
+};
+
 
 int main()
 {
-	int opcion, numc, cdt, total, put, pu,opcion2,repetidor;
+	int opcion, numc, cdt, total, put, pu,opcion2,repetidor, repetidor2,i,j;
 	char pac[1000];
 	char trt[1000];
 	char desc[10000];
@@ -23,80 +30,59 @@ int main()
 		cout << "5-Limpiar pantalla" << endl;
 		cout << "6-Salir" << endl;
 		cin >> opcion;
-		
+		consultorio citas[3];
 		
 			switch (opcion)
 			{
 			case 1:
-				cout << "Numero de cita" << endl;
-				cin >> numc;
-				cout << "Nombre del paciente" << endl;
-				cin.ignore();
-				cin.getline(pac, 1000, '\n');
-				cout << "Hora del tratamiento (en 24 hrs)" << endl;
-				cin >> hrs;			
-				cout << "Nombre del tratamiento" << endl;
-				cin.ignore();
-				cin.getline(trt, 1000, '\n');
-				cout << "Descripcion" << endl;
-				cin.ignore();
-				cin.getline(desc, 10000, '\n');
-				cout << "Cantidad del tratamiento" << endl;
-				cin >> cdt;
-				cout << "Precio Unitario" << endl;
-				cin >> pu;
-				total = pu * cdt;
-				cout << "Total: $" << total << endl;
-				cout << "Regresar al menu" << endl;
-				cout << "1-si" << endl;
-				cout << "2-no" << endl;
-				cin >> repetidor;
+				
+					for (i = 0; i < 3; i++)
+					{
+						cout << "Numero de cita" << endl;
+						citas[i].numero = i + 1;
+						cout << citas[i].numero << endl;
+						cout << "Nombre del paciente" << endl;
+						cin>>citas[i].paciente;
+						cout << "Hora del tratamiento (en 24 hrs)" << endl;
+						cin >> citas[i].hrs;
+						cout << "Nombre del tratamiento" << endl;
+						cin >> citas[i].nomtratamiento;
+						cout << "Descripcion" << endl;
+						cin.ignore();
+						cin.getline(desc, 10000, '\n');
+						cout << "Cantidad del tratamiento" << endl;
+						cin >> cdt;
+						cout << "Precio Unitario" << endl;
+						cin >> citas[i].precio;
+						total = citas[i].precio * cdt;
+						cout << "Total: $" << total << endl;
+						
+					}
+
+				
+					cout << "Regresar al menu" << endl;
+					cout << "1-si" << endl;
+					cout << "2-no" << endl;
+					cin >> repetidor;
+				
 
 				break;
 			case 2:
-				cout << "Numero de cita" << endl;
-				cin >> numc;
-				cout << "Ingrese el numero correspondiente al dato que desea modificar" << endl;
-				cout << "1.Nombre del paciente" << endl;
-				cout << "2.Hora del tratamiento" << endl;
-				cout << "3.Nombre del tratamiento" << endl;
-				cout << "4.Cantidad del tratamient" << endl;
-				cout << "5.Precio Unitario" << endl;
-				cin >> opcion2;
-
-
-				switch (opcion2)
+				cout << "Ingrese el numero de cita para modificar" << endl;
+				cin >> j;
+				i = j - 1;
+				for (i; i <j; i++)
 				{
-				case 1:
-					cout << "ingrese nuevo nombre" << endl;
-					cin.ignore();
-					cin.getline(pac, 1000, '\n');
-					break;
-				case 2:
-					cout << "ingrese nueva hora" << endl;
-					cin >> hrs;
-					break;
-				case 3:
-					cout << "Ingres nuevo nombre del tratamiento" << endl;
-					cin.ignore();
-					cin.getline(trt, 1000, '\n');
-					break;
-				case 4:
-					cout << "Ingrese nueva cantidad de tratamiento" << endl;
-					cin >> cdt;
-					break;
-				case 5:
-					cout << "ingrese nuevo precio Unitario" << endl;
-					cin >> pu;
-					break;
-				default:
-					cout << "Ingrese dato valido" << endl;
+					cout << "Numero de cita" << endl;
+					citas[i].numero = i + 1;
+					cout << citas[i].numero << endl;
+					cout << "Nombre del paciente" << endl;
+					cin >> citas[i].paciente;
+					cout << "Hora del tratamiento (en 24 hrs)" << endl;
+					cin >> citas[i].hrs;
+					cout << "Nombre del tratamiento" << endl;
+					cin >> citas[i].nomtratamiento;
 				}
-				cout << "Regresar al menu" << endl;
-				cout << "1-si" << endl;
-				cout << "2-no" << endl;
-				cin >> repetidor;
-
 				break;
 			case 3:
 				cout << "Ingrese la cita a eliminar" << endl;
@@ -108,6 +94,15 @@ int main()
 
 				break;
 			case 4:
+
+				for (i = 0; i < 3; i++)
+				{
+					cout <<"El numero de cita  "<< citas[i].numero << endl;
+					cout <<"Paciente: "<< citas[i].paciente << endl;
+					cout << "Hora de cita: " << citas[i].hrs << endl;
+					cout << "Tratamiento: "<< citas[i].nomtratamiento << endl;
+
+				}
 				cout << "Regresar al menu" << endl;
 				cout << "1-si" << endl;
 				cout << "2-no" << endl;
@@ -129,9 +124,7 @@ int main()
 				break;
 			default:
 				cout << "Ingrese una ocpion valida" << endl;
-				cout << "Regresar al menu" << endl;
-				cout << "1-si" << endl;
-				cout << "2-no" << endl;
+				repetidor = 1;
 			
 
 			}
@@ -140,5 +133,3 @@ int main()
 	}while (repetidor == 1);
 	
 }
-
-
